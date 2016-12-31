@@ -1,7 +1,7 @@
-LEPTON_NAME = leptonica-1.72
-PNG_NAME    = libpng-1.6.20
+LEPTON_NAME = leptonica-1.74
+PNG_NAME    = libpng-1.6.27
 JPEG_NAME   = jpeg-9a
-TIFF_NAME   = tiff-4.0.4
+TIFF_NAME   = tiff-4.0.6
 
 SDK_IPHONEOS_PATH=$(shell xcrun --sdk iphoneos --show-sdk-path)
 SDK_IPHONESIMULATOR_PATH=$(shell xcrun --sdk iphonesimulator --show-sdk-path)
@@ -94,7 +94,8 @@ $(TESSERACT_SRC)/%/Makefile : $(libtessconfig) $(libleptfat)
 	export LIBLEPT_HEADERSDIR=$(TESSERACT_SRC)/$*/ ; \
 	mkdir -p $(@D) ; \
 	cd $(@D) ; \
-	ln -s $(LEPTON_SRC)/src/ leptonica ; \
+	ln -s $(LEPTON_SRC)/src leptonica ; \
+	ln -s $(LEPTON_SRC)/../endianness.h $(LEPTON_SRC)/src/endianness.h ; \
 	../configure --host=$* --prefix=`pwd` --enable-shared=no --disable-graphics
 
 $(libtessconfig) : $(libtessautogen)
@@ -146,6 +147,7 @@ $(imagesmakefile) $(libtessautogen) :
 
 $(libleptconfig) :
 	curl http://leptonica.org/source/$(LEPTON_NAME).tar.gz | tar -xpf-
+  
 
 #######################
 # Clean
