@@ -1,6 +1,6 @@
 [submodule "TesseractOCR/tesseract-ocr"]
 	path = TesseractOCR/tesseract-ocr
 	url = https://github.com/bringhurst/tesseract.git
-#[submodule "TesseractOCR/libtiff-ios"]
-#	path = TesseractOCR/libtiff-ios
-#	url = https://github.com/bringhurst/libtiff-ios.git
+[submodule "TesseractOCR/libtiff-ios"]
+	path = TesseractOCR/libtiff-ios
+	url = https://github.com/bringhurst/libtiff-ios.git
