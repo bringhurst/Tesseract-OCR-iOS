@@ -95,7 +95,7 @@ $(TESSERACT_SRC)/%/Makefile : $(libtessconfig) $(libleptfat)
 	mkdir -p $(@D) ; \
 	cd $(@D) ; \
 	ln -s $(LEPTON_SRC)/src leptonica ; \
-	@export PKG_CONFIG_PATH=../../leptonica-1.74/$*/lib/pkgconfig ; \
+	export PKG_CONFIG_PATH=$(shell pwd)/$(LEPTON_NAME)/$*/lib/pkgconfig ; \
 	../configure --host=$* --prefix=`pwd` --enable-shared=no --disable-graphics
 
 $(libtessconfig) : $(libtessautogen)
